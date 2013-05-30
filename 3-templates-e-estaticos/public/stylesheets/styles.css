@@ -1,0 +1,149 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+body>header,
+body>aside {
+    background: #191818;
+    color: #fff;
+}
+
+body>header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    padding-left: 10px;
+}
+
+    body>header h1 {
+        font-size: 30px;
+        float: left;
+        line-height: 50px;
+        margin: 0;
+        width: 200px;
+    }
+
+    #counter {
+        float: left;
+        line-height: 50px;
+        font-size: 20px;
+        color: #777777;
+    }
+
+        #counter span {
+            color: #fff;
+        }
+
+body>aside {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    height: 100%;
+    padding-bottom: 100px;
+    width: 200px;
+    font-size: 16px;
+    /*color: #999999;*/
+    color: #777777;
+}
+
+    body>aside h2 {
+        font-size: 20px;
+        padding-left: 10px;
+    }
+
+    body>aside ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    body>aside li {
+        padding: 5px 0 5px 20px;
+    }
+
+    body>aside li:hover {
+        background: #333333;
+    }
+
+        body>aside li a {
+            color: #777777;
+            text-decoration: none;
+            display: block;
+        }
+
+#replybox {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+    background: #FAFAFA;
+    color: #777777;
+    border-top: 2px solid #EEEEEE;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+}
+
+    #personal-info {
+        float: left;
+        width: 20%;
+        border-right: 1px solid #EEEEEE;
+        padding-right: 15px;
+    }
+
+        #personal-info p {
+            line-height: 40px;
+            margin: 0;
+        }
+
+        #personal-info span {
+            color: #000;
+        }
+
+    #replybox textarea {
+        resize: none;
+        height: 74px;
+        margin-left: 15px;
+        width: 70%;
+    }
+
+    #replybox button {
+        background: #0078E7;
+        color: #fff;
+        border: 0 none transparent;
+        border-radius: 3px;
+        padding: 10px 20px;
+    }
+
+#conversation {
+    margin: 50px 0 100px 200px;
+}
+
+    .message {
+        padding: 10px;
+        background: #FAFAFA;
+    }
+
+    .message:nth-child(even) {
+        background: white;
+    }
+
+        .message p {
+            margin-top: 0;
+        }
+
+        .message .from {
+            color: #777777;
+            font-size: 0.8em;
+            text-align: right;
+        }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HELLO</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One|Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>ENCATEC Chat</h1>
+        <div id="counter">
+            <span>32</span> online
+        </div>
+    </header>
+
+    <aside>
+        <h2>Usuários online</h2>
+        <ul>
+            <li>
+                <a href="#">Fulano</a>
+            </li>
+            <li>
+                <a href="#">Ciclano</a>
+            </li>
+            <li>
+                <a href="#">Beltrano</a>
+            </li>
+        </ul>
+    </aside>
+
+    <section id="conversation">
+        <div class="message">
+            <p>Foo Bar Baz</p>
+            <p class="from">Ciclano<p>
+        </div>
+
+        <div class="message">
+            <p>Foo Bar Baz</p>
+            <p class="from">Ciclano<p>
+        </div>
+
+        <div class="message">
+            <p>Foo Bar Baz</p>
+            <p class="from">Ciclano<p>
+        </div>
+
+        <div class="message">
+            <p>Foo Bar Baz</p>
+            <p class="from">Ciclano<p>
+        </div>
+    </section>
+
+    <section id="replybox">
+        <form>
+            <div id="personal-info">
+                <p>
+                    <label for="nickname">Seu nick</label>
+                    <input id="nickname" name="nickname" type="text" placeholder="anonymous017">
+                </p>
+
+                <p>Falando com <span>Ciclano</span></p>
+            </div>
+
+            <div>
+                <textarea id="message" placeholder="Digite sua mensagem aqui..."></textarea>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </section>
+
+    <script src="javascripts/jquery-2.0.2.js"></script>
+</body>
+</html>
