@@ -41,7 +41,7 @@ io.sockets.on('connection', function(socket) {
         id: socket.id,
         nick: nick,
         message: {
-            message: 'Bem vindo ao ENCATEC Chat! O código-fonte está em ',
+            message: 'Bem vindo ao ENCATEC Chat! O código-fonte está em https://github.com/lucassmagal/minicurso-node-js',
             nick: 'chatbot',
             id: 'chatbot'
         }
