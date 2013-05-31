@@ -47,10 +47,9 @@ body>aside {
     top: 50px;
     left: 0;
     height: 100%;
-    padding-bottom: 100px;
+    padding-bottom: 60px;
     width: 200px;
     font-size: 16px;
-    /*color: #999999;*/
     color: #777777;
 }
 
@@ -89,7 +88,7 @@ body>aside {
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 100px;
+    height: 60px;
     width: 100%;
     padding: 10px;
 }
@@ -110,9 +109,7 @@ body>aside {
             color: #000;
         }
 
-    #replybox textarea {
-        resize: none;
-        height: 74px;
+    #message {
         margin-left: 15px;
         width: 70%;
     }
@@ -127,11 +124,27 @@ body>aside {
 
 #conversation {
     margin: 50px 0 100px 200px;
+    overflow-y: auto;
 }
 
     .message {
         padding: 10px;
         background: #FAFAFA;
+
+        /* clearfix */
+        border: 1px solid #fff;
+        overflow: auto;
+    }
+
+    .message img {
+        width: 5%;
+        float: left;
+    }
+
+    .message>div {
+        width: 93%;
+        margin-left: 2%;
+        float: left;
     }
 
     .message:nth-child(odd) {

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ENCATEC Chat</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One|Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/chat.css">
+</head>
+<body>
+    <header>
+        <h1>ENCATEC Chat</h1>
+        <div id="counter">
+            <span>...</span> online
+        </div>
+    </header>
+
+    <aside>
+        <h2>Usuários online</h2>
+        <ul id="users">
+            <!-- A lista de usuários conectados estará aqui -->
+        </ul>
+    </aside>
+
+    <section id="conversation">
+        <!-- As mensagens do chat estarão aqui -->
+    </section>
+
+    <section id="replybox">
+        <form>
+            <div id="personal-info">
+                <p>
+                    <label for="nickname">Seu nick</label>
+                    <input id="nickname" name="nickname" type="text" placeholder="anonymous017">
+                </p>
+            </div>
+
+            <div>
+                <input type="text" id="message" placeholder="Digite sua mensagem aqui...">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </section>
+
+    <script id="template-user-connected" type="text/template">
+        <li>
+            <a data-id="{{ id }}" href="#">{{ nick }}</a>
+        </li>
+    </script>
+
+    <script id="template-message" type="text/template">
+        <div class="message {{ classes }}">
+            <img src="http://robohash.org/{{ id }}" />
+            <div>
+                <p>{{ message }}</p>
+                <p class="from">{{ nick }}<p>
+            </div>
+        </div>
+    </script>
+
+    <script>var PORT = '<%= port %>';</script>
+    <script src="javascripts/jquery-2.0.2.js"></script>
+    <script src="javascripts/mustache.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="javascripts/chat.js"></script>
+</body>
+</html>
