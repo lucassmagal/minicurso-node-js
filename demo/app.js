@@ -4,6 +4,7 @@ var express = require('express'),
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+var clients = [];  // aqui guardaremos os clientes conectados
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -26,8 +27,6 @@ app.get('/', function(req, res) {
 
 var io = socketio.listen(app.listen(PORT));
 console.log('Listening on ' + PORT + '...');
-
-var clients = [];  // aqui guardaremos os clientes conectados
 
 // Aqui programaremos o chat em si
 io.sockets.on('connection', function(socket) {
@@ -64,31 +63,26 @@ io.sockets.on('connection', function(socket) {
 
     // altera o nick de um cliente
     socket.on('change_nick', function(data) {
-        for(var x=0; x<clients.length; x++) {
-            if(clients[x].id == socket.id) {
-                clients[x].nick = data.nick;
-            }
-        }
+        var pos = get_client_pos(socket.id);
 
-        io.sockets.emit('connected_users', clients);
+        if(pos != null) {
+            clients[pos].nick = data.nick;
+            io.sockets.emit('connected_users', clients);
+        }
     });
 
     // ao receber uma mensagem, envia a todos os usuarios
     socket.on('message', function(data) {
-        var nick = null;
+        var nick = null, pos = get_client_pos(socket.id);
 
-        for(var x=0; x<clients.length; x++) {
-            if(clients[x].id == socket.id) {
-                nick = clients[x].nick;
-                break;
-            }
+        if(pos != null) {
+            nick = clients[pos].nick;
+            io.sockets.emit('message', {
+                id: socket.id,
+                nick: nick,
+                message: data.message
+            });
         }
-
-        io.sockets.emit('message', {
-            id: socket.id,
-            nick: nick,
-            message: data.message
-        });
     });
 
     // TAREFA DE CASA: implementar a feature de mandar uma mensagem pra um client
@@ -101,3 +95,15 @@ io.sockets.on('connection', function(socket) {
         });
     });
 });
+
+
+// helpers
+function get_client_pos(id) {
+    for(var x=0; x<clients.length; x++) {
+        if(clients[x].id == id) {
+            return x;
+        }
+    }
+
+    return null;
+}
